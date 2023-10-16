@@ -187,10 +187,7 @@ bool CameraVideoRecorderPrivate::OnRecordVideo(const msgs::VideoRecord &_msg,
           this->recordVideoFormat;
     }
 
-    // encode to tmp file and only move to the user specified path once
-    // recording is done
-    this->tmpVideoFilename = std::to_string(this->entity) + "."
-         + this->recordVideoFormat;
+    this->tmpVideoFilename = this->recordVideoSavePath;
   }
 
   // Set up the render connection so we can do the encoding in the rendering
